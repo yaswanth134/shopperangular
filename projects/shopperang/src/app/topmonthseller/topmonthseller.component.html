@@ -1,0 +1,155 @@
+<div id="topmothseller">
+    <h2 class="text-center">Top month Sellers</h2>
+    <div class="nav nav-pills justify-content-center d-flex my-lg-3">
+        <a class="nav-link active" href="#topSellersTab" data-bs-toggle="tab">Women</a>
+        <a class="nav-link" href="#topSellersTab" data-bs-toggle="tab">Men</a>
+        <a class="nav-link" href="#topSellersTab" data-bs-toggle="tab">Kids</a>
+    </div>
+    <div class="container-fluid my-5">
+        <div class="tab-content">
+            <div class="tab-pane show fade active d-flex flex-wrap justify-content-center" id="topSellersTab">
+                <div *ngFor="let product of topmonthproducts" class="m-3">
+                    <div class="card-body m-2 position-relative" style="height: 250px; width: 200px;" id="imagemenu">
+                        <div *ngIf="product.secondaryimage!==null; then thenblock2 else elseblock2"></div>
+                        <ng-template #thenblock2>
+                            <img [src]="product.primaryimage" alt="" height="100%" width="100%" id="primaryimage">
+                            <div class="badge bg-white position-absolute text-black rounded-0" style="top: 10px; left: 0px;">{{product.statusofproduct}}</div>
+                            <div id="secondaryimage" class="position-relative">
+                                <img [src]="product.secondaryimage" alt="" height="250px" width="200px" >
+                                <div class="d-flex justify-content-center position-absolute" id="imageover">
+                                    <a href="#dials" data-bs-toggle="modal" (click)="view(product.id)"><span class="bi bi-eye me-1 rounded rounded-circle py-1 px-2"></span></a>
+                                    <a (click)="setcart(product.id)"><span class="bi bi-cart me-1 rounded rounded-circle py-1 px-2"></span></a>
+                                    <a href=""><span class="bi bi-heart me-1 rounded rounded-circle py-1 px-2"></span></a>
+                                </div>
+                            </div>
+                        </ng-template>
+                        <ng-template #elseblock2>
+                            <img [src]="product.primaryimage" alt="" height="100%" width="100%" id="primaryimage">
+                            <div id="secondaryimage" class="position-relative">
+                                <img [src]="product.primaryimage" alt="" height="250px" width="200px">
+                                <div class="d-flex justify-content-center position-absolute" id="imageover">
+                                    <a href="#dials" data-bs-toggle="modal" (click)="view(product.id)"><span class="bi bi-eye me-1 rounded rounded-circle py-1 px-2"></span></a>
+                                    <a (click)="setcart(product.id)"><span class="bi bi-cart me-1 rounded rounded-circle py-1 px-2"></span></a>
+                                    <a href=""><span class="bi bi-heart me-1 rounded rounded-circle py-1 px-2"></span></a>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <h6 class="text-muted fw-medium" style="margin: 10px 10px 0px 10px;">{{product.productname}}</h6>
+                    <p class="text-black fw-bold" style="margin: 0px 10px 0px 10px;">{{product.descripton}}</p>
+                    <div class="text-muted fw-medium" style="margin: 0px 10px 10px 10px;">
+                        <div *ngIf="product.offerprice===null; then thenBlock else elseBlock"></div>
+                        <ng-template #thenBlock>
+                            <p>&dollar;{{product.price}}</p>
+                        </ng-template>
+                        <ng-template #elseBlock>
+                            <p class="text-danger "><span class="text-muted text-decoration-line-through">&dollar;{{product.offerprice}}</span> &dollar;{{product.price}}</p>
+                        </ng-template>
+                    </div>
+                </div>                              
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="dials">
+        <div class="modal-dialog modal-dialog-centered modal-xl ">
+            <div class="modal-content d-flex flex-row">
+                <div class="modal-body d-flex" style="width: auto; background-color: white;">
+                    <div class="position-relative">
+                        <img [src]="this.imageneedtodisplay" alt="" height="550px">
+                        <button style="position: absolute; bottom: 1px; left:0px; border: none; padding:15px; background-color:tomato; width: 465px; color:white;" >More Product Info <span class="bi bi-info-circle"></span></button>
+                    </div>
+                    <div class="m-4">
+                        <h1>{{this.title}}</h1>
+                        <h4>&dollar;{{this.price}}.00 <span>&#40;{{this.instock}}&#41;</span></h4>
+                        <h6 class="text-muted mt-4">Color: <span class="text-black">{{this.color}}</span></h6>
+                        <div class="my-4">
+                            <div *ngIf="this.secondaryimage!==null; then image1 else image2"></div>
+                            <ng-template #image1>
+                                <a (click)="imageviewonmain(this.primaryimage)"><img [src]="this.primaryimage" alt="" height="100px" width="100px" class="me-2"></a>
+                                <a (click)="imageviewonmain(this.secondaryimage)"><img [src]="this.secondaryimage" alt="" height="100px" width="100px" ></a>
+                            </ng-template>
+                            <ng-template #image2>
+                                <img [src]="this.primaryimage" alt="" height="100px" width="100px">
+                            </ng-template>
+                        </div>
+                        <div class="mt-lg-4">
+                            <p class="text-muted">Size: <span class="text-black fw-bold">{{mysizevalue}}US</span></p>
+                            <div class="d-flex flex-wrap my-3" id="sizebuttons">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizeone" value="6" (click)="mysizevalue=6">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizeone">6</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizetwo" value="6" disabled>
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizetwo">6.5</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizethree" value="7" (click)="mysizevalue=7">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizethree">7</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizefour" value="7.5" (click)="mysizevalue=7.5">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizefour">7.5</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizefive" value="8" (click)="mysizevalue=8">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizefive">8</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizesix" value="8.5" (click)="mysizevalue=8.5">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizesix">8.5</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizeseven" value="9" (click)="mysizevalue=9">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizeseven">9</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizeeight" value="9.5" (click)="mysizevalue=9.5">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizeeight">9.5</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizenine" value="10" (click)="mysizevalue=10">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizenine">10</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizeten" value="10.5" (click)="mysizevalue=10.5">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizeten">10.5</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizeellven" value="11" (click)="mysizevalue=11">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizeellven">11</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsizetwelve" value="11.5" (click)="mysizevalue=11.5">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsizetwelve">11.5</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsize13" value="12" (click)="mysizevalue=12">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsize13">12</label>
+                                </div>
+                                <div class="form-check form-check-inline form-check-size">
+                                    <input type="radio" class="btn-check" name="modalproductsize" id="modalproductsize14" value="13" (click)="mysizevalue=13">
+                                    <label class="btn btn-outline-dark rounded-0 px-3 py-2" for="modalproductsize14">13</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <select name="" id="" class="px-3 py-2"  [(ngModel)]="cartobj.quantity">
+                                <optgroup>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </optgroup>
+                            </select>
+                            <button class="btn btn-dark rounded-0 px-3 py-2 mx-2" (click)="setcart(this.id)">Add to Cart <span class="bi bi-cart"></span></button>
+                            <button class="btn btn-outline-dark rounded-0 px-3 py-2 mx-2">Whishlist <span class="bi bi-heart"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn btn-close m-2" data-bs-dismiss="modal"></div>
+            </div>
+        </div>
+    </div>
+</div>

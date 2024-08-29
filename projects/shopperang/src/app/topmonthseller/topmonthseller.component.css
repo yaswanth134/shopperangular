@@ -1,0 +1,29 @@
+#topmothseller{
+    margin: 50px 210px;
+}
+#imagemenu:hover #secondaryimage{
+    display: block;
+    transition: 2s;
+}
+#imagemenu:hover #primaryimage{
+    display: none;
+}
+#secondaryimage{
+    display: none;
+}
+#imageover{
+    top: 200px;
+    left: 50px;
+}
+#imageover span{
+    background-color: white;
+}
+#imageover span:hover{
+    background-color: tomato;
+}
+a{
+    color: black;
+}
+#sizebuttons label{
+    margin-left: -22px;
+}

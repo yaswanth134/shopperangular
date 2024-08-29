@@ -1,0 +1,143 @@
+#imageBlock{
+    display: grid;
+    grid-template-columns: 4fr 4fr 4fr;
+    height: 500px;
+}
+#men{
+    background-image: url("../../assets/images/menshop.jpg");
+    background-size: cover;
+    height: auto;
+    width: 100%;
+}
+#women{
+    background-image: url("../../assets/images/1.jpg");
+    background-size: cover;
+    height: auto;
+    width: 100%;
+}
+#kids{
+    background-image: url("../../assets/images/2.jpg");
+    background-size: cover;
+    height: auto;
+    width: 100%;
+}
+#women:hover a span{
+    margin-left: 2px;
+}
+#men:hover a span{
+    margin-left: 2px;
+}
+#kids:hover a span{
+    margin-left: 2px;
+}
+#women:hover #innerwomen{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+#men:hover #innermen{
+    background-color: rgba(0, 0, 0,0.2);
+}
+#kids:hover #innerkid{
+    background-color: rgba(0, 0, 0,0.2);
+}
+#innerwomen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#innermen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#innerkid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+a{
+    cursor: pointer;
+    background-color: white;
+    padding: 10px 20px;
+}
+#firstcolumnadv{
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    margin: 10px 210px;
+    height: 400px;
+}
+#bag{
+    background-image: url("../../../src/assets/images/fashion-products-bag-handbag.jpg");
+    background-size: cover;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#bag:hover span{
+    margin-left: 2px;
+}
+#bag:hover{
+    margin-left: 2px;
+}
+#printedmenshirt{
+    background-image: url("../../../src/assets/images/shirt-hanger-clothing-clothe.jpg");
+    background-size: cover;
+    height: auto;
+    width: 100%;
+    margin-left: 10px;
+}
+#printedmenshirt:hover span{
+    margin-left: 2px;
+}
+#printedmenshirt:hover{
+    margin-left: 12px;
+}
+#printedmenshirt div{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#secondcolumnadv{
+    display: grid;
+    grid-template-columns: 6fr 4fr;
+    margin: 10px 210px;
+    height: 400px;
+}
+#basicwomendress{
+    background-image: url("../../../src/assets/images/20-25-year-old-adult-bag-carrying.jpg");
+    background-size: cover;
+    height: auto;
+    width: 100%;
+}
+#basicwomendress:hover span{
+    margin-left: 2px;
+}
+#basicwomendress:hover{
+    margin-left: 2px;
+}
+#basicwomendress div{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#sweatshirt{
+    background-image: url("../../../src/assets/images/wool-sweater-men.jpg");
+    background-size: cover;
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+#sweatshirt:hover span{
+    margin-left: 2px;
+}
+#sweatshirt:hover{
+    margin-left: 12px;
+}

@@ -1,0 +1,85 @@
+
+#fastlinks a{
+    padding: 7px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+#newfeatureslink:hover ul{
+    display: block;
+}
+#newfeatureslink ul{
+    display: none;
+}
+#catlogbody{
+    position: absolute;
+    left: 0px;
+}
+#Catloglink:hover ul{
+    display: block;
+} 
+#Catloglink ul{
+    display: none;
+}
+#pageslink:hover ul{
+    display: block;
+}
+#pageslink ul{
+    display: none;
+}
+#bloglink:hover ul{
+    display: block;
+}
+#bloglink ul{
+    display: none;
+}
+#op{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/images/product-110.jpg');
+    background-size: cover;
+    width: 30vw;
+    height: auto;
+}
+#op:hover span{
+    margin-left: 2px;
+}
+#navtap{
+    display: flex;
+    flex-direction: row;
+}
+#menumain{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    width: 100%;
+}
+@media screen and (min-width: 1050px) {
+    #navtap>span{
+        margin: 10px;
+    }
+    #pages{
+        display: flex;
+        justify-content: space-between;
+        width: 62%;
+    }
+}
+@media screen and (max-width: 480px) {
+    #navtap {
+        flex-wrap: wrap;
+    }
+    #navtap>span{
+        margin: 0px -10px;
+    }
+    #op{
+        display: none;
+    }  
+    #menumain{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+}

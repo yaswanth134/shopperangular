@@ -1,0 +1,35 @@
+<div class="container">
+    <h3>Select Styles</h3>
+    <dl>
+        <dt>Background</dt>
+        <dd>
+            <select [(ngModel)]="bgStyle">
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+            </select>
+        </dd>
+        <dt>Text Color</dt>
+        <dd>
+            <select [(ngModel)]="textStyle">
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+            </select>
+        </dd>
+        <dt>Padding</dt>
+        <dd>
+            1px <input type="range" [(ngModel)]="padding" min="1" max="50" name="" id=""> 50px
+        </dd>
+        <dt>Font Size</dt>
+        <dd>
+            1px <input type="range" (change)="FontChange()" [(ngModel)]="fontSize" min="1" max="50" name="" id=""> 50px
+        </dd>
+        <dd>
+            <button (click)="ApplyClick()">Apply</button>
+        </dd>
+    </dl>
+    <h1 [ngStyle]="styleObject">Srikanth Rallabandi</h1>
+</div>
